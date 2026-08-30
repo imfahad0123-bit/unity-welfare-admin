@@ -1129,7 +1129,8 @@
     const GOOGLE_CLIENT_ID = '656592188513-qfmj21c5esml7nr98um9kgaoq589i2lv.apps.googleusercontent.com';
     let GOOGLE_ID_TOKEN = '';
     let GOOGLE_ADMIN_EMAIL = '';
-
+console.log('AUTH SUCCESS:', GOOGLE_ADMIN_EMAIL);
+console.log('Starting Admin App...');
     function waitForGoogleIdentityServices(timeoutMs = 10000) {
       return new Promise((resolve, reject) => {
         const start = Date.now();
@@ -1223,8 +1224,11 @@
       initNavigation();
       initPrintCards();
       try {
+        console.log('Calling db.init()...');
         await db.init();
+        console.log('Calling syncAll()...');
         await syncAll();
+        console.log('syncAll completed');
         showToast('Connected to online database', 'success');
       } catch (err) {
         console.error(err);
