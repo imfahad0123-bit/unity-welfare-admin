@@ -1128,7 +1128,23 @@
     /* --- 0. GOOGLE SIGN-IN AUTHENTICATION --- */
     const GOOGLE_CLIENT_ID = '656592188513-qfmj21c5esml7nr98um9kgaoq589i2lv.apps.googleusercontent.com';
     let GOOGLE_ID_TOKEN = '';
-    let GOOGLE_ADMIN_EMAIL = '';
+    let GOOGLE_ADMIN_EMAIL = '';const ADMIN_SESSION_STORAGE_KEY =
+  'UNITY_WELFARE_SESSION_ID';
+
+const ADMIN_SESSION_EXPIRES_KEY =
+  'UNITY_WELFARE_SESSION_EXPIRES';
+
+let ADMIN_SESSION_ID =
+  localStorage.getItem(
+    ADMIN_SESSION_STORAGE_KEY
+  ) || '';
+
+let ADMIN_SESSION_EXPIRES =
+  Number(
+    localStorage.getItem(
+      ADMIN_SESSION_EXPIRES_KEY
+    ) || 0
+  );
 console.log('AUTH SUCCESS:', GOOGLE_ADMIN_EMAIL);
 console.log('Starting Admin App...');
     function waitForGoogleIdentityServices(timeoutMs = 10000) {
